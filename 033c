@@ -1,0 +1,16 @@
+class MyClass:
+    def instantce_method(self):
+        print('实例方法',self)
+    
+    @classmethod
+    def classmethod(cls):
+        print('类方法',cls)
+    
+    @staticmethod
+    def staticmethod():
+        print('静态方法')
+
+my_class = MyClass()
+my_class.instantce_method()
+my_class.classmethod()
+my_class.staticmethod()
