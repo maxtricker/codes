@@ -1,0 +1,21 @@
+class Dog:
+
+    def __init__(self,name,weight):
+        self.name=name
+        self.weight=int(weight)
+
+    def run(self):
+        self.weight-=1
+
+    def eat(self):
+        self.weight+=1
+
+d1=Dog('卧龙',60)
+d1.eat()
+d1.eat()
+print(f'{d1.name}的体重是{d1.weight}')
+
+d2=Dog('凤雏',45)
+d2.run()
+d2.run()
+print(f'{d2.name}的体重是{d2.weight}')

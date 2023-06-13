@@ -1,0 +1,74 @@
+def print_info(name,title="",gender=True):
+    gender_text="男性"
+    if not gender:
+        gender_text="女性"
+    print(f"{title}{name}是{gender_text}")
+
+# print_info("二两")
+# print_info("二两","工程师")
+# print_info("美术","ayu",False)
+
+# def add(a,b):
+#     return a+b
+# f=add
+
+# def new_add(a,b,f):
+#     return f(a,b)+f(a,b)
+
+# x=new_add(1,2,f)
+# print(x)
+
+# def f(x):
+#     return x*x
+
+# l=[1,2,3,4,5,6,7,8,9]
+# r=map(f,l)
+
+# print(list(r))
+# print(r)
+
+# l=[1,2,3,4,5,6,7,8,9]
+# res=[]
+
+# def f(x):
+#     return x*x
+
+# for i in l:
+#     res.append(f(i))
+# print(res)
+
+
+# from functools import reduce
+
+# def str2int(s):
+#     def f(a,b):
+#         return a*10+b
+    
+#     def char2int(c):
+#         return int(c)
+    
+#     num=reduce(f,map(char2int,s))
+#     return num
+
+# num=str2int("123456")
+# print(num,type(num))
+
+# newnum=int('123456')
+# print(newnum,type(newnum))
+
+
+# def fact(n):
+#     if n==1:
+#         return 1
+#     return n*fact(n-1)
+
+
+# m=fact(int(input("请输入数字：")))
+# print(m)
+
+def fact(n):
+    return fact_iter(n,1)
+def fact_iter(num,product):
+    if num==1:
+        return product
+    return fact_iter(num-1,num*product)

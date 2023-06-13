@@ -1,0 +1,24 @@
+import time
+import functools
+
+def runtime(func):
+    @functools.wraps(func)#被装饰后，还希望保持原来的名字
+    def wrapper(*args,**kwargs):
+        #使用*args和**kwargs是为了无论func传什么参数进来都能接收
+        start_time=time.perf_counter()#获得起始时间点
+        res=func(*args,**kwargs)#与wrapper参数作用一致
+        _runtime=time.perf_counter()-start_time
+        #再调用一次当下时间点，减去调用start_time时的时间点
+        name=func.__name__#获得函数的名字
+        print(f'[{name}] function runtime:{_runtime}')
+        '''return res因为上面已有打印，也只需要print的结果，
+        所以return可不使用'''
+    return wrapper
+
+# @runtime
+def snooze():
+    time.sleep(3)
+
+runtime(snooze)()#这种调用的方法与@runtime的方法一样
+
+print(snooze.__name__)

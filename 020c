@@ -1,0 +1,14 @@
+class People:#定义people这个class
+    def __init__(self,name,height):
+    #__init__()是一个特殊的方法,每当你根据People类创建新实例时,
+    # Python都会自动运行它
+        self.name=name#self.name调用存在name中的值，保存在后面变量name中
+        self.height=height
+       
+    def eat(self):
+        print(f'{self.name}喜欢吃东西')
+
+ayu=People('二两',177)#把ayu归类与people这个class里
+print(ayu.name)#使ayu可以调用name
+print(ayu.height)
+ayu.eat()#使ayu可以调用函数eat

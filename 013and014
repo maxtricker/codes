@@ -1,0 +1,16 @@
+# while True:
+#     try:
+#         x=int(input("请输入一个数字："))
+#         break
+#     except ValueError:
+#         print("你输入的不是一个数字，请重新输入")
+
+filepaths=["news.txt","not_exist_file.txt"]
+for fp in filepaths:
+    try:
+        f=open(fp,"r",encoding="utf8")
+    except:
+        print(f"cannot open{fp}")
+    else:
+        content=f.read()
+        print(f"file content:{content}")

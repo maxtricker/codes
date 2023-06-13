@@ -1,0 +1,50 @@
+'''class Animal:
+    def run(self):
+        print('Animal is running...')
+class Dog(Animal):
+    def run(self):#子类的方法名称与父类一致，覆盖父类方法
+        self.name='Dog'
+        print('Dog is running...')
+
+class Cat(Animal):
+    pass
+
+dog=Dog()
+dog.run()#这里运行的是Dog类内的run方法
+print(dog.name)
+
+cat=Cat()
+cat.run()#因为Cat类里没有自己的run方法，使用父类Animal中的run方法'''
+
+'''class Animal:
+    def run(self):
+        print('Animal is running...')
+
+class Dog(Animal):
+    def run(self):
+        super().run()#利用super()调用了父类Animal中的run方法
+        print('Dog is running')
+
+dog=Dog()
+dog.run()'''
+
+
+class A:
+    def run(self):
+        print('A run:',self)
+
+class B(A):
+    def run(self):
+        print('B run:',self)
+
+class C(A):
+    def run(self):
+        print('C run:',self)
+
+class D(B,C):#由于参数B在C前，D继承顺序D>B>C>A
+    def run(self):
+        super().run()
+        print('D run:',self)
+
+d=D()
+d.run()

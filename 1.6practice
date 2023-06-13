@@ -1,0 +1,25 @@
+import jieba
+from collections import Counter
+
+def read_file(filepath):
+    with open(filepath,'r',encoding="utf8") as f:
+        return f.read()
+    
+filepath=r'C:\Users\Max\Desktop\PythonTao\codes\news16.txt'
+txt=read_file(filepath)
+
+words=jieba.cut(txt)
+
+spam_word=['，','的','\n','。','了','就','在']
+
+words_list=[word for word in words if word and word not in spam_word]
+
+res=Counter(words_list)
+
+res_sort=sorted(res.items(),key=lambda x:x[1],reverse=True)
+
+top_5=res_sort[:5]
+print(top_5)
+
+for word_num in top_5:
+    print(f'{word_num[0]}的词频为：{word_num[1]/len(words_list)}')

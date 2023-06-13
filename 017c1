@@ -1,0 +1,34 @@
+import time
+import functools
+
+def runtime(level='info'):
+
+    def decorate(func):
+        @functools.wraps(func)
+        def wrapper(*args,**kwargs):
+            start_time=time.perf_counter()
+            res=func(*args,**kwargs)
+            _runtime=time.perf_counter()-start_time
+
+            name=func.__name__
+            if level == 'debug':
+                print(f'[{name}] function runtime:{_runtime}')
+            return res
+        return wrapper
+    return decorate
+
+@runtime(level='debug')
+#runtime()得作为函数被调用才能使decorate装饰器生效
+def snooze():
+    time.sleep(3)
+
+snooze()
+
+'''runtime(level='debug')(snooze)()
+通过这种方式也可以调用参数化装饰器'''
+
+
+'''
+decorate=runtime(level='debug')因为runtime有参数，所以得用这个先调用
+sleep=decorate(sleep)调用runtime之后，就能正常方式调用装饰器了
+sleep()'''

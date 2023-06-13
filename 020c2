@@ -1,0 +1,9 @@
+class A:
+    def p(self):
+        print('这是个类')
+
+a=A()
+a.p()
+a.name='名字'
+a.age=28
+print(a.name)
